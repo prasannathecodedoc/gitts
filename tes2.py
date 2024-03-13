@@ -71,3 +71,133 @@ array = [354, 954, 411, 9]
 print("The original array is: ", array)
 radix_Sort(array)
 print("The sorted array is: ", array)
+
+
+
+..................
+
+
+# Linear Search in Python
+
+
+def linearSearch(array, n, x):
+
+    # Going through array sequencially
+    for i in range(0, n):
+        if (array[i] == x):
+            return i
+    return -1
+
+
+array = [2, 4, 0, 1, 9]
+x = 1
+n = len(array)
+result = linearSearch(array, n, x)
+if(result == -1):
+    print("Element not found")
+else:
+    print("Element found at index: ", result)
+
+
+
+.........
+
+
+
+
+# Binary Search in python
+
+
+def binarySearch(array, x, low, high):
+
+    # Repeat until the pointers low and high meet each other
+    while low <= high:
+
+        mid = low + (high - low)//2
+
+        if array[mid] == x:
+            return mid
+
+        elif array[mid] < x:
+            low = mid + 1
+
+        else:
+            high = mid - 1
+
+    return -1
+
+
+array = [3, 4, 5, 6, 7, 8, 9]
+x = 4
+
+result = binarySearch(array, x, 0, len(array)-1)
+
+if result != -1:
+    print("Element is present at index " + str(result))
+else:
+    print("Not found")
+
+
+
+.......
+
+SOURCE CODE
+graph = {
+  'A' : ['B','C'],
+  'B' : ['D', 'E'],
+  'C' : ['F'],
+  'D' : [],
+  'E' : ['F'],
+  'F' : []
+}
+
+visited = [] # List to keep track of visited nodes.
+queue = []     #Initialize a queue
+
+def bfs(visited, graph, node):
+  visited.append(node)
+  queue.append(node)
+
+  while queue:
+    s = queue.pop(0) 
+    print (s, end = " ") 
+
+    for neighbour in graph[s]:
+      if neighbour not in visited:
+        visited.append(neighbour)
+        queue.append(neighbour)
+
+# Driver Code
+bfs(visited, graph, 'A')
+
+
+
+.......
+
+
+SOURCE CODE
+# Using a Python dictionary to act as an adjacency list
+graph = {
+    'A' : ['B','C'],
+    'B' : ['D', 'E'],
+    'C' : ['F'],
+    'D' : [],
+    'E' : ['F'],
+    'F' : []
+}
+
+visited = set() # Set to keep track of visited nodes.
+
+def dfs(visited, graph, node):
+    if node not in visited:
+        print (node)
+        visited.add(node)
+        for neighbour in graph[node]:
+            dfs(visited, graph, neighbour)
+
+# Driver Code
+dfs(visited, graph, 'A')
+
+
+
+
